@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../static/register.css">
+
+    <title>Register</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Register</h1> <!--Register title-->
+        {% with messages = get_flashed_messages(with_categories=True) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              {% if category == 'error' %}
+                <p class="flash error">{{ message }}</p>  <!--Show error message in case of invalid register-->
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+        <form action="/register" method="POST"> <!--Post method to register-->
+          <input type="text" name="username" placeholder="Username" required>
+          <input type="password" name="password" placeholder="Password" required>
+          <button type="submit">Register</button> <!--Submit button to register-->
+        </form>
+        <div class="login-button">
+          <a href="/login">Login</a> <!--Button to access to the login page-->
+        </div>
+      </div>
+      
+</body>
+</html>

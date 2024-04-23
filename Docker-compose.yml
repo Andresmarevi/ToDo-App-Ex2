@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  flask-app:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      MONGO_URI: "mongodb://$MONGO_USERNAME:$MONGO_PASSWORD@db:27017/db"
+    command: ["python", "app.py"]
+    env_file:
+      - .env
+
+  db:
+    image: mongo
+    ports:
+      - "27017:27017"

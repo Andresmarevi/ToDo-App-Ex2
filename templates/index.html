@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="../static/index.css">
+  <title>ToDos App</title>
+</head>
+<body>
+  <header>
+    <h1>What do I have to do today?</h1> <!--Title-->
+  </header>
+  <main>
+    <section class="add-todo">
+      <form action="/add" method="POST"> <!--Post method to create new toDo-->
+        <input type="text" name="content" placeholder="Add a new task" required>
+        <button type="submit"> Add </button>
+      </form>
+    </section>
+    <section class="todo-list"> <!--List that shows every toDo-->
+      <ul>
+        {% for todo in todos %}
+          <li class="todo-item">
+            <div class="content">
+              {% if todo.done %}
+                <span class="completed">{{ todo.content }} </span> <!--If a toDo is mark as done, the styles changed to appear crossed and in grey-->
+              {% else %}
+                {{ todo.content }}
+              {% endif %}
+            </div>
+            <div class="actions">
+              {% if not todo.done %}
+                <a href="/done/{{ todo._id }}">Mark as completed</a> <!--Button that calls the mark as done action of a toDo-->
+              {% endif %}
+              <a href="/delete/{{ todo._id }}">Delete</a> <!--Button that calls the delete action of a toDo-->
+
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+    <section class="logout">
+      <a href="/logout">Log out</a> <!--Log out button to come back to the log in page-->
+    </section>
+  </main>
+</body>
+</html>

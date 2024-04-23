@@ -1,0 +1,106 @@
+/* Styles of the index page */
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+h1 {
+  font-size: 24px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+header {
+  color: white;
+  padding: 20px;
+  text-align: center;
+  background: linear-gradient(90deg, #493eea 0%, rgb(251, 249, 249) 100%);
+
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.add-todo {
+  margin-bottom: 20px;
+}
+
+.add-todo form {
+  display: flex;
+  align-items: center;
+}
+
+.add-todo input[type="text"] {
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.add-todo button[type="submit"] {
+  padding: 10px 15px;
+  background-color: #9fa5fa; 
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.todo-list {
+  width: 80%;
+  max-width: 600px;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+}
+
+.todo-item .content {
+  flex-grow: 1;
+}
+
+.todo-item .completed {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+.todo-item .actions {
+  text-align: right;
+}
+
+.todo-item .actions a {
+  margin-left: 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+.logout {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.logout a {
+  color: #f70303; 
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+  .todo-list {
+    width: 100%;
+  }
+}
